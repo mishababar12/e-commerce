@@ -1,25 +1,41 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import Products from "../app/components/products";  // Import the Products component
+import ProductDetail from "../app/components/productDetail";  // Import the ProductDetail component
+import { CartProvider } from "../app/components/cartContext";
+import CartPage from "../app/components/cartPage";
+import Navbar from "./components/navbar";
+import HeroSection from "../app/components/hero";
 
-import Hero from "./components/hero"
-import Pic from "./components/pics"
-import Feature from "./components/feature"
-import Essential from "./components/essential"
-import Dnt from "./components/dnt"
-import Gear from './components/gear'
-
-
-export default function Home() {
+const App = () => {
   return (
-    <div>
+    <CartProvider>
+      {/* Wrap the entire app with BrowserRouter */}
+      <Router>
+        <Navbar />
+        <MainContent />
+      </Router>
+    </CartProvider>
+  );
+};
+
+const MainContent = () => {
+  // Get current path using useLocation
+  const location = useLocation();
+
+  return (
+    <>
+      {/* Render HeroSection only on the Home page */}
+      {location.pathname === "/" && <HeroSection />}
       
-      <Hero/>
-      <Pic/>
-      <Feature/>
-      <Gear/>
-      <Dnt/>
-      <Essential/>
-     
-     
-    </div>
-  )
-}
+      <Routes>
+        <Route path="/" element={<Products />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/cart" element={<CartPage />} />
+      </Routes>
+    </>
+  );
+};
+
+export default App;
