@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link"; // Use Next.js Link component
 import { useCart } from "../components/cartContext"; // Import useCart to access cart data
 import { FaShoppingCart } from "react-icons/fa"; // Import the cart icon
 
@@ -12,18 +12,18 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         
         {/* Logo or Home link */}
-        <Link to="/" className="text-3xl font-bold text-white hover:text-gray-400">
+        <Link href="/" className="text-3xl font-bold text-white hover:text-gray-400">
           My Store
         </Link>
 
         {/* Navbar Links */}
         <div className="flex space-x-6 ml-auto">
-          <Link to="/" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Home</Link>
-          <Link to="/products" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Products</Link>
-          <Link to="/contact" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Contact</Link>
+          <Link href="/" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Home</Link>
+          <Link href="/products" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Products</Link>
+          <Link href="/contact" className="text-lg hover:text-blue-400 font-bold transition-all duration-300">Contact</Link>
 
           {/* Cart Link with cart icon and item count */}
-          <Link to="/cart" className="relative flex items-center">
+          <Link href="/cart" className="relative flex items-center">
             <FaShoppingCart className="text-2xl mr-2 hover:text-blue-400 transition-all duration-300" />
             {/* Cart item count */}
             <span

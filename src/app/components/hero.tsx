@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const HeroSection = () => {
@@ -40,24 +41,24 @@ const HeroSection = () => {
         Unleash Your Inner Fashionista
         </h1>
         <p className="text-md md:text-xl mb-8 leading-relaxed">
-        Find the perfect blend of fashion and comfort with our exclusive collections. Whether it's for everyday wear or a special occasion, 
+        Find the perfect blend of fashion and comfort with our exclusive collections. Whether it&apos;s for everyday wear or a special occasion, 
         discover the pieces that express your unique style.
         </p>
 
         {/* Call-to-action Buttons */}
         <div className="flex flex-wrap gap-6 justify-center mb-6">
-          <a
+          <Link
             href="#shop-now"
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white rounded-full shadow-lg text-lg transition-transform transform hover:scale-105"
           >
             Shop the Collection
-          </a>
-          <a
+          </Link>
+          <Link
             href="#collections"
             className="px-8 py-4 bg-white font-sm hover:bg-gray-100 text-black rounded-full shadow-lg text-lg transition-transform transform hover:scale-105"
           >
             Explore More
-          </a>
+          </Link>
         </div>
 
         

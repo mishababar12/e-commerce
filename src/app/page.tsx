@@ -1,41 +1,19 @@
-"use client";
-import React from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Products from "../app/components/products";  // Import the Products component
-import ProductDetail from "../app/components/productDetail";  // Import the ProductDetail component
-import { CartProvider } from "../app/components/cartContext";
-import CartPage from "../app/components/cartPage";
-import Navbar from "./components/navbar";
-import HeroSection from "../app/components/hero";
+// pages/index.tsx
+import HeroSection from "../app/components/hero";  // Import your hero section if needed
+import ProductList from "../app/components/productList";  // List of products or featured products
 
-const App = () => {
+
+const Home = () => {
   return (
-    <CartProvider>
-      {/* Wrap the entire app with BrowserRouter */}
-      <Router>
-        <Navbar />
-        <MainContent />
-      </Router>
-    </CartProvider>
-  );
-};
-
-const MainContent = () => {
-  // Get current path using useLocation
-  const location = useLocation();
-
-  return (
-    <>
-      {/* Render HeroSection only on the Home page */}
-      {location.pathname === "/" && <HeroSection />}
+    <div>
+      <>
       
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/cart" element={<CartPage />} />
-      </Routes>
-    </>
+      <HeroSection />  {/* Optional hero section for welcome message */}
+      <h2 className="text-center mt-10 text-2xl font-semibold">Featured Products</h2>
+      <ProductList />   {/* Display featured products or categories */}
+      </>
+    </div>
   );
 };
 
-export default App;
+export default Home;
