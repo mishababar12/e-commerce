@@ -82,7 +82,7 @@ const ProductDetail = () => {
             <p className="text-sm text-gray-600 font-semibold mb-2">{product.category}</p>
 
             {/* Product Title */}
-            <h1 className="text-4xl font-bold mb-4">{product.title}</h1>
+            <h1 className="lg:text-3xl md:text-2xl sm:text-xs font-bold mb-4">{product.title}</h1>
 
             {/* Product Price */}
             <p className="text-xl font-bold text-gray-600 mb-4">
@@ -96,7 +96,7 @@ const ProductDetail = () => {
             </div>
 
             {/* Product Description */}
-            <p className="text-md text-gray-700 mb-6">{product.description}</p>
+            <p className="text-xs sm:text-xs text-gray-700 mb-6">{product.description}</p>
 
             {/* Buttons: Add to Cart & Go to Cart */}
             <div className="flex space-x-4">

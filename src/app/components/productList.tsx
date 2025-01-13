@@ -52,37 +52,24 @@ const ProductList = () => {
     <div className="container mx-auto px-4 py-6">
       {/* Button Filters */}
       <div className="flex justify-center mb-5 pb-5 space-x-4">
-        <button
-          className="btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all"
-          onClick={() => handleCategoryChange("All")} // Show all products
-        >
-          All
-        </button>
-        <button
-          className="btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all"
-          onClick={() => handleCategoryChange("men's clothing")} // Filter by Men's Clothing
-        >
-          Men's Clothing
-        </button>
-        <button
-          className="btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all"
-          onClick={() => handleCategoryChange("women's clothing")} // Filter by Women's Clothing
-        >
-          Women's Clothing
-        </button>
-        <button
-          className="btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all"
-          onClick={() => handleCategoryChange("jewelery")} // Filter by Jewelry
-        >
-          Jewelry
-        </button>
-        <button
-          className="btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all"
-          onClick={() => handleCategoryChange("electronics")} // Filter by Electronics
-        >
-          Electronics
-        </button>
+       {/* Button Filters */}
+      <div className="flex justify-center mb-5 pb-5 space-x-4">
+        {/* Render category filter buttons */}
+        {["All", ...categories].map((category) => (
+          <button
+            key={category}
+            className={`btn btn-outline-dark hover:bg-gray-700 hover:text-white py-2 px-4 rounded-lg transition-all ${
+              selectedCategory === category
+                ? "bg-gray-700 text-white"
+                : "text-black"
+            }`} // Highlight the selected category button
+            onClick={() => handleCategoryChange(category)}
+          >
+            {category}
+          </button>
+        ))}
       
+      </div>
       </div>
 
       {/* Product Grid */}

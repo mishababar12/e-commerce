@@ -25,7 +25,7 @@ const CartPage = () => {
             cart.map((item) => (
               <div key={item.id} className="flex justify-between items-center mb-4 px-4 py-2 border-b">
                 {/* Item Image */}
-                <div className="w-[124px] h-[124px]">
+                <div className="w-[124px] h-[124px] mb-8">
                   <Image
                     src={item.image} // Ensure item.image is a valid path to the image
                     alt={item.title}
@@ -36,14 +36,14 @@ const CartPage = () => {
 
                 {/* Item Details */}
                 <div className="flex flex-col justify-between w-[227px] ml-4">
-                  <p className="font-bold text-lg">{item.title}</p>
+                  <p className="font-bold text-lg sm:text-xs">{item.title}</p>
                   <p className="text-sm">Size: {item.size}</p>
                   <p className="text-sm">Color: {item.color}</p>
-                  <p className="font-bold text-2xl">${item.price}</p>
+                  <p className="font-bold text-2xl sm:text-xs">${item.price}</p>
                 </div>
 
                 {/* Quantity and Remove Button */}
-                <div className="flex items-center justify-center w-[150px]">
+                <div className="flex mt-32  items-center justify-center w-[150px]">
                   <RiDeleteBin6Fill
                     className="text-red-500 text-2xl cursor-pointer"
                     onClick={() => removeFromCart(item.id)}
